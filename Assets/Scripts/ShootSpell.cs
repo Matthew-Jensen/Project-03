@@ -5,7 +5,8 @@ using UnityEngine;
 public class ShootSpell : MonoBehaviour
 {
     public Camera cam;
-    public GameObject projectile;
+    public GameObject projectile; //Default Cold
+    public GameObject flameProjectile;
     public Transform firePoint;
     public float projectileSpeed = 30f;
     public float distanceRange = 1000f;
@@ -24,6 +25,10 @@ public class ShootSpell : MonoBehaviour
         {
             ShootProjectile();
         }
+        if (Input.GetButtonDown("Fire2"))
+        {
+            TouchProjectile();
+        }
     }
 
     void ShootProjectile()
@@ -40,12 +45,29 @@ public class ShootSpell : MonoBehaviour
             destination = ray.GetPoint(distanceRange);
         }
 
-        InstantiateProjectile();
+        InstantiateProjectile(projectile, projectileSpeed);
     }
 
-    void InstantiateProjectile()
+    void TouchProjectile()
     {
-        var projectileObj = Instantiate(projectile, firePoint.position, Quaternion.identity) as GameObject;
-        projectileObj.GetComponent<Rigidbody>().velocity = (destination - firePoint.position).normalized * projectileSpeed;
+        Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            destination = hit.point;
+        }
+        else
+        {
+            destination = ray.GetPoint(distanceRange);
+        }
+
+        InstantiateProjectile(flameProjectile, 2f);
+    }
+
+    void InstantiateProjectile(GameObject projectileType, float spellSpeed)
+    {
+        var projectileObj = Instantiate(projectileType, firePoint.position, Quaternion.identity) as GameObject;
+        projectileObj.GetComponent<Rigidbody>().velocity = (destination - firePoint.position).normalized * spellSpeed;
     }
 }
