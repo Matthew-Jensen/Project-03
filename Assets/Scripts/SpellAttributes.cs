@@ -7,7 +7,7 @@ public class SpellAttributes : MonoBehaviour
     public bool isDamaging;
     public bool isTouch;
     public bool isSelf;
-    public bool isPostMortem = true;
+    public bool isPostMortem;
     public bool soulTrap;
     public float duration = 5f;
     public float magnitude;

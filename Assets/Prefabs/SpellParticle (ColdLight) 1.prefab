@@ -88,14 +88,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036d15d5d3d26a14aab65688161410c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDamaging: 0
+  isDamaging: 1
   isTouch: 0
   isSelf: 0
   isPostMortem: 0
   soulTrap: 0
-  duration: 5
-  magnitude: 0
-  damage: 30
+  duration: 10
+  magnitude: 3
+  damage: 3
   area: 0
   soulTrapObject: {fileID: 6305515497505829601, guid: c67838cfecae3aa4eb51c0e79c49b071, type: 3}
 --- !u!1 &2762276988562158174

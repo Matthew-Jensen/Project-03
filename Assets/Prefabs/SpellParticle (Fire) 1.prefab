@@ -4944,13 +4944,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDamaging: 1
-  isTouch: 0
+  isTouch: 1
   isSelf: 0
   isPostMortem: 1
-  soulTrap: 0
-  duration: 5
-  magnitude: 0
-  damage: 12.38
+  soulTrap: 1
+  duration: 2
+  magnitude: 30
+  damage: 30
   area: 0
   soulTrapObject: {fileID: 6305515497505829601, guid: c67838cfecae3aa4eb51c0e79c49b071, type: 3}
 --- !u!54 &-1492467365404530482

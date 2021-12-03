@@ -30,10 +30,10 @@ public class XRay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //TEMP XRAY TOGGLE
         if (Input.GetKeyDown(KeyCode.X))
         {
             xRayOn = !xRayOn;
+            Invoke("DisableXRay", 10f);
         }
         if (xRayOn != true)
         {
@@ -65,5 +65,10 @@ public class XRay : MonoBehaviour
             }
         }
         */
+    }
+
+    void DisableXRay()
+    {
+        xRayOn = false;
     }
 }
